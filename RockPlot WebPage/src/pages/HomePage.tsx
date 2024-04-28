@@ -4,7 +4,7 @@ import Intro from "../components/HomePage/Intro";
 import Tutorials from "../components/HomePage/Tutorials";
 import Development from "../components/HomePage/Development";
 import { useShellCtx } from "../components/Layout/Shell";
-import { Center, Container, Group, Image } from "@mantine/core";
+import { Button, Center, Container, Group, Image } from "@mantine/core";
 
 const HomePage = () => {
   const { tocToggleHandler } = useShellCtx();
@@ -22,8 +22,12 @@ const HomePage = () => {
         <Container size="lg">
           <Center>
             <Group justify="center" w="100%" gap="4rem">
-              <Image src="png/cga_logo.png" h={100} />
-              <Image src="png/sgb_logo.png" h={100} />
+              <Button component="a" href="https://www.sgb.gov.br/en/" unstyled>
+                <Image src="png/cga_logo.png" h={100} />
+              </Button>
+              <Button component="a" href="https://www.sgb.gov.br/en/" unstyled>
+                <Image src="png/sgb_logo.png" h={100} />
+              </Button>
             </Group>
           </Center>
         </Container>
