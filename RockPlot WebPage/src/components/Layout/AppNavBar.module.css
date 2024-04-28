@@ -1,0 +1,18 @@
+.wrap {
+  padding-left: var(--mantine-spacing-xs);
+  padding-right: var(--mantine-spacing-xs);
+  padding-bottom: var(--mantine-spacing-lg);
+  border-bottom: 1px solid var(--mantine-color-gray-2);
+
+  @mixin dark {
+    border-bottom: 1px solid var(--mantine-color-dark-4);
+  }
+}
+
+.button {
+  color: var(--button-gray-dark);
+  &:hover {
+    background: none;
+    color: black;
+  }
+}

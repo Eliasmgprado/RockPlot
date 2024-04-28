@@ -1,0 +1,4 @@
+.container {
+  border-top: 1px solid #cccccc;
+  box-shadow: inset 0px 6px 20px -10px rgb(192, 192, 192);
+}

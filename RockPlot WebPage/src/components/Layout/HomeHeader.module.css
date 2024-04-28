@@ -1,0 +1,85 @@
+.hide-sm {
+  @media (min-width: em(750px)) {
+    display: none;
+  }
+}
+
+.root {
+  font-family: var(--mantine-font-family);
+  -webkit-font-smoothing: var(--mantine-webkit-font-smoothing);
+  -moz-osx-font-smoothing: var(--mantine-moz-font-smoothing);
+  &[data-variant="dark"] {
+    background: url(png/twinkle-twinkle.png), var(--background-blue) !important;
+  }
+  /* ...getVariantStyles({ variant }), */
+}
+
+.tocButton {
+  @media (min-width: em(750px)) {
+    display: none;
+  }
+  &[data-variant="transparent"],
+  &[data-variant="dark"] {
+    color: var(--button-gray);
+    &:hover {
+      background: none;
+      color: white;
+    }
+  }
+  color: var(--button-gray-dark);
+  &:hover {
+    background: none;
+    color: black;
+  }
+}
+.linkButton {
+  &.transparent {
+    color: var(--button-gray) !important;
+    &:hover {
+      background: none !important;
+      color: white !important;
+    }
+  }
+  color: var(--button-gray-dark) !important;
+  &:hover {
+    background: none !important;
+    color: black !important;
+  }
+  height: initial !important;
+  font-weight: 400 !important;
+  font-size: 1rem !important;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  &[data-variant="dark"] {
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 1px;
+      background: rgba(34, 36, 38, 0.1);
+    }
+    &:hover {
+      background: rgba(0, 0, 0, 0.03);
+    }
+  }
+}
+.signOut {
+  color: white;
+  border-color: white;
+  background: none;
+
+  &[data-variant="default"] {
+    color: rgba(0, 0, 0, 0.6);
+    border-color: transparent;
+    background: #e0e1e2;
+
+    &:hover {
+      background: white;
+    }
+  }
+  &:hover {
+    color: black;
+    background: #cacbcd;
+  }
+}

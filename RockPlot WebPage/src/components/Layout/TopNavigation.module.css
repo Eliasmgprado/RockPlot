@@ -1,0 +1,159 @@
+.container {
+  background: var(--background-blue);
+  min-height: 700px;
+  background-image: url(/RockPlot/png/twinkle-twinkle.png), var(--background-blue);
+}
+
+.image {
+  width: 80% !important;
+  margin: auto;
+  margin-top: 3em;
+  margin-bottom: 0em;
+  font-size: 4em;
+  font-weight: normal;
+  text-align: center;
+}
+
+.buttonlabel {
+  font-size: 1.4rem;
+}
+
+.logo {
+  height: 4rem;
+  width: 4rem;
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+
+.nav {
+  background-color: #212529;
+  height: 5rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .nav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 150;
+  }
+}
+
+.nav > .container {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.navbar-toggler {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.35rem;
+  position: absolute;
+  left: var(--gap);
+}
+
+.navbar-toggler:hover {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+  text-decoration: none;
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.nav .navbar-toggler {
+  color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand {
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  font-size: 1.25rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar-brand > span {
+  vertical-align: middle;
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.right-but {
+  position: absolute !important;
+  right: var(--gap);
+  text-decoration: none;
+}
+
+.right-but > button {
+  display: flex;
+}
+
+.logout {
+  color: #fff !important;
+  background-color: #198754;
+  border-color: #198754;
+}
+
+.logout:hover {
+  color: #fff !important;
+  background-color: #157347;
+  border-color: #146c43;
+  box-shadow: 0 0 0 0.1rem rgba(60, 153, 110, 0.5);
+}
+
+.logout > *:not(:only-child):first-child {
+  margin-right: 0.75rem;
+}
+
+.right-but:link {
+  text-decoration: none;
+}
+
+.right-but:visited {
+  text-decoration: none;
+}
+
+.right-but:hover {
+  text-decoration: none;
+}
+
+.right-but:active {
+  text-decoration: none;
+}
