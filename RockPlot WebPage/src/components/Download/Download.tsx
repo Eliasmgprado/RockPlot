@@ -43,13 +43,17 @@ const DownloadPage = () => {
 
         const { body, published_at, tag_name, name, assets } = data;
 
+        const asset_file = assets.find((asset: any) =>
+          asset.name.endsWith(".exe")
+        );
+
         const {
           browser_download_url,
           content_type,
           download_count,
           size,
           updated_at,
-        } = assets?.[0] ?? {
+        } = asset_file ?? {
           browser_download_url: "",
           content_type: "",
           download_count: "",
