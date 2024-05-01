@@ -11,12 +11,13 @@ import {
   ActionIcon,
   Popover,
 } from "@mantine/core";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { MdOutlineInfo } from "react-icons/md";
 import HomeHeader from "../Layout/HomeHeader";
 import { useShellCtx } from "../Layout/Shell";
 import AppFooter from "../Layout/AppFooter";
 import { FaWindows } from "react-icons/fa";
+import ReactGA from "react-ga";
 
 interface Releases {
   body: string;
@@ -73,6 +74,14 @@ const DownloadPage = () => {
       .catch((error) => console.error(error));
   }, []);
 
+  const handleClick = useCallback(() => {
+    ReactGA.event({
+      category: "Button Click",
+      action: "Clicked on Download Latest",
+      label: "Download Latest",
+    });
+  }, []);
+
   return (
     <Stack align="stretch" gap={0} mih="100vh" w="100vw">
       <Container
@@ -112,6 +121,7 @@ const DownloadPage = () => {
                         href={latest?.browser_download_url}
                         variant="outline"
                         fullWidth
+                        onClick={handleClick}
                       >
                         {`Download RockPlot ${latest.tag_name}`}
                       </Button>

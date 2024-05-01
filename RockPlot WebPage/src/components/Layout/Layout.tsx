@@ -4,6 +4,8 @@ import classes from "./Layout.module.css";
 import { AppShell } from "@mantine/core";
 import { useUncontrolled } from "@mantine/hooks";
 import AppNavBar from "./AppNavBar";
+import { useLocation } from "react-router-dom";
+import ReactGA from "react-ga";
 
 export interface LayoutProps {
   /** App components */
@@ -32,6 +34,12 @@ export interface LayoutProps {
 }
 
 const Layout = (props: LayoutProps) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.pageview(location.pathname + location.search);
+  }, [location]);
+
   const [tocIsOpen, setTocIsOpen] = useUncontrolled({
     value: props.tocIsOpenValue,
     defaultValue: false,
