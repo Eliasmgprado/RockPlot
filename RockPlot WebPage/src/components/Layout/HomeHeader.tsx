@@ -63,6 +63,7 @@ const HomeHeader = ({
             <Box component="a" href="#/">
               <Image
                 mah={!matches ? "50px" : "60px"}
+                maw={!matches ? "250px" : undefined}
                 mx="auto"
                 py="5px"
                 radius="md"

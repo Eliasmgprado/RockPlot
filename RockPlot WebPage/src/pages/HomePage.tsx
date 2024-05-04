@@ -25,7 +25,7 @@ const HomePage = () => {
           <Center>
             <Group justify="center" w="100%" gap="4rem">
               <Button component="a" href="https://www.sgb.gov.br/en/" unstyled>
-                <Image src="png/cga_logo.png" h={100} />
+                <Image src="png/cga_logo.png" h={100} fit="contain" />
               </Button>
               <Button component="a" href="https://www.sgb.gov.br/en/" unstyled>
                 <Image

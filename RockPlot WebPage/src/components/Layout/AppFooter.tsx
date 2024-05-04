@@ -4,7 +4,6 @@ import {
   Container,
   ContainerProps,
   Group,
-  Stack,
   Text,
 } from "@mantine/core";
 import { FaLinkedin } from "react-icons/fa";
