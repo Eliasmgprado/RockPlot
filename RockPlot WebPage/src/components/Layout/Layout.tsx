@@ -5,7 +5,7 @@ import { AppShell } from "@mantine/core";
 import { useUncontrolled } from "@mantine/hooks";
 import AppNavBar from "./AppNavBar";
 import { useLocation } from "react-router-dom";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 export interface LayoutProps {
   /** App components */
@@ -37,7 +37,11 @@ const Layout = (props: LayoutProps) => {
   const location = useLocation();
 
   useEffect(() => {
-    ReactGA.pageview(location.pathname + location.search);
+    ReactGA.send({
+      hitType: "pageview",
+      page: location.pathname + location.search,
+      title: "Page View",
+    });
   }, [location]);
 
   const [tocIsOpen, setTocIsOpen] = useUncontrolled({
@@ -61,6 +65,8 @@ const Layout = (props: LayoutProps) => {
     setTimeout(() => window.dispatchEvent(new Event("resize")), 350);
   }, [tocIsOpen]);
 
+  console.log(tocIsOpen, !props.topIsOpen);
+
   return (
     <>
       <AppShell
@@ -81,7 +87,7 @@ const Layout = (props: LayoutProps) => {
           main: classes.main,
         }}
       >
-        <AppShell.Header>{props.header}</AppShell.Header>
+        {props.topIsOpen && <AppShell.Header>{props.header}</AppShell.Header>}
         {tocIsOpen && <AppNavBar onClose={() => setTocIsOpen(false)} />}
         <AppShell.Main>{props.children}</AppShell.Main>
         <AppShell.Footer p={0}>{props.footer}</AppShell.Footer>

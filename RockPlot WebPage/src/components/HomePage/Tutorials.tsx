@@ -9,6 +9,7 @@ import {
   ThemeIcon,
   Title,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
 
 const TUTORIAL_IDS = [
@@ -32,12 +33,22 @@ const TUTORIAL_IDS = [
 
 const Tutorials = () => {
   const [tutorial, setTutorial] = useState(TUTORIAL_IDS[0]);
+  const matches = useMediaQuery("(min-width: 48em)");
 
   return (
     <Box id="Tutorials" py="1rem">
-      <Box w="70vw" mx="auto" maw="1080px" mah="400px">
-        <Grid px={"2rem"} gutter={0}>
-          <Grid.Col span={4} pr={"1rem"}>
+      <Box
+        w={matches ? "70vw" : "85vw"}
+        mx="auto"
+        maw="1080px"
+        mah={matches ? "400px" : "600px"}
+      >
+        <Grid px={matches ? "2rem" : 0} gutter={0}>
+          <Grid.Col
+            span={{ base: 12, sm: 4 }}
+            pr={matches ? "1rem" : 0}
+            mb={matches ? 0 : "md"}
+          >
             <Title order={1} fw={700} mb="sm">
               Tutorials
             </Title>
@@ -73,7 +84,7 @@ const Tutorials = () => {
               })}
             </List>
           </Grid.Col>
-          <Grid.Col span={8}>
+          <Grid.Col span={{ base: 12, sm: 8 }}>
             <AspectRatio ratio={16 / 9} maw="700px">
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${tutorial.id}?controls=1&autohide=true&autoplay=auto&color=%23444444&hq=true&jsapi=false&modestbranding=true`}

@@ -12,6 +12,7 @@ import classes from "./HomeHeader.module.css";
 import cx from "clsx";
 import { useNavigate } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { useMediaQuery } from "@mantine/hooks";
 
 export interface TopNavigationProps extends ContainerProps {
   /** Table of Contents Button Click */
@@ -31,6 +32,7 @@ const HomeHeader = ({
   ...props
 }: TopNavigationProps) => {
   const navigate = useNavigate();
+  const matches = useMediaQuery("(min-width: 48em)");
   return (
     <Container
       id="Index"
@@ -48,7 +50,7 @@ const HomeHeader = ({
             opened={tocIsOpen}
             onClick={tocClick}
             hiddenFrom="sm"
-            color="white"
+            color={variant === "transparent" ? "white" : "black"}
             size="sm"
           />
           <Group
@@ -60,56 +62,65 @@ const HomeHeader = ({
           >
             <Box component="a" href="#/">
               <Image
-                maw={"50px"}
+                mah={!matches ? "50px" : "60px"}
                 mx="auto"
                 py="5px"
                 radius="md"
                 src={
-                  ["transparent", "dark"].includes(variant ?? "")
+                  !matches && ["transparent", "dark"].includes(variant ?? "")
+                    ? "svg/logo/rockplot_grey.svg"
+                    : !matches
+                    ? "svg/logo/rockplot_black.svg"
+                    : ["transparent", "dark"].includes(variant ?? "")
                     ? "svg/logo/rockplot_logo_grey.svg"
                     : "svg/logo/rockplot_logo_black.svg"
                 }
                 alt="RockPlot"
               />
             </Box>
-            <Button
-              component={HashLink}
-              variant="subtle"
-              classNames={{
-                root: cx(classes.linkButton, {
-                  [classes.transparent]: variant === "transparent",
-                }),
-              }}
-              to="/#About"
-            >
-              About
-            </Button>
-            <Button
-              component={HashLink}
-              variant="subtle"
-              classNames={{
-                root: cx(classes.linkButton, {
-                  [classes.transparent]: variant === "transparent",
-                }),
-              }}
-              to="/#Tutorials"
-            >
-              Tutorials
-            </Button>
-            <Button
-              component="a"
-              variant="subtle"
-              classNames={{
-                root: cx(classes.linkButton, {
-                  [classes.transparent]: variant === "transparent",
-                }),
-              }}
-              onClick={() => {
-                navigate("/downloads", { replace: true });
-              }}
-            >
-              Downloads
-            </Button>
+
+            {matches && (
+              <>
+                <Button
+                  component={HashLink}
+                  variant="subtle"
+                  classNames={{
+                    root: cx(classes.linkButton, {
+                      [classes.transparent]: variant === "transparent",
+                    }),
+                  }}
+                  to="/#About"
+                >
+                  About
+                </Button>
+                <Button
+                  component={HashLink}
+                  variant="subtle"
+                  classNames={{
+                    root: cx(classes.linkButton, {
+                      [classes.transparent]: variant === "transparent",
+                    }),
+                  }}
+                  to="/#Tutorials"
+                >
+                  Tutorials
+                </Button>
+                <Button
+                  component="a"
+                  variant="subtle"
+                  classNames={{
+                    root: cx(classes.linkButton, {
+                      [classes.transparent]: variant === "transparent",
+                    }),
+                  }}
+                  onClick={() => {
+                    navigate("/downloads", { replace: true });
+                  }}
+                >
+                  Downloads
+                </Button>
+              </>
+            )}
           </Group>
         </Group>
       </Group>

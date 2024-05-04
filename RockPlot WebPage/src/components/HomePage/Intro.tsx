@@ -2,9 +2,11 @@ import { Container, Grid, Image, List, Text, Title } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
 import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
+import { useMediaQuery } from "@mantine/hooks";
 
 const Intro = () => {
   const autoplay = useRef(Autoplay({ delay: 2000 }));
+  const matches = useMediaQuery("(min-width: 48em)");
 
   // console.log(autoplay.current);
 
@@ -23,13 +25,13 @@ const Intro = () => {
   return (
     <Container
       id="About"
-      py="8rem"
+      py={!matches ? "2rem" : "8rem"}
       style={{ borderBottom: "1px solid rgba(34,36,38,.15)" }}
       fluid
     >
       <Container size="lg">
-        <Grid>
-          <Grid.Col span={6}>
+        <Grid gutter={{ base: 0, sm: "sm" }}>
+          <Grid.Col span={{ base: 12, sm: 6 }}>
             <Title order={1} fw={700} mb="sm">
               Easy-to-use Smart Geochemical Web Application
             </Title>
@@ -58,7 +60,12 @@ const Intro = () => {
               </List.Item>
             </List>
           </Grid.Col>
-          <Grid.Col span={6} style={{ alignSelf: "center" }} px="md">
+          <Grid.Col
+            span={{ base: 12, sm: 6 }}
+            style={{ alignSelf: "center" }}
+            px={!matches ? 0 : "md"}
+            pt={!matches ? "md" : 0}
+          >
             <Carousel
               slideSize={{ base: "100%" }}
               height={300}

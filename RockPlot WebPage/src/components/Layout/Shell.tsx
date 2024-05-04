@@ -26,6 +26,8 @@ const Shell = () => {
     setTocIsOpen((prev) => !prev);
   }, []);
 
+  console.log(tocIsOpen, topIsOpen);
+
   return (
     <Layout
       tocIsOpenValue={tocIsOpen}

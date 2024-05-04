@@ -10,9 +10,11 @@ import {
 import { useNavigate } from "react-router-dom";
 import classes from "./Development.module.css";
 import { MdOutlineFileDownload } from "react-icons/md";
+import { useMediaQuery } from "@mantine/hooks";
 
 const Development = () => {
   const navigate = useNavigate();
+  const matches = useMediaQuery("(min-width: 48em)");
 
   return (
     <Container
@@ -21,8 +23,8 @@ const Development = () => {
       fluid
     >
       <Container size="lg">
-        <Grid>
-          <Grid.Col span={6}>
+        <Grid gutter={{ base: 0, sm: "sm" }}>
+          <Grid.Col span={{ base: 12, sm: 6 }}>
             <Title order={1} fw={700} mb="sm">
               RockPlot is in Development
             </Title>
@@ -60,9 +62,15 @@ const Development = () => {
               elias.prado@sgb.gov.br
             </Anchor>
           </Grid.Col>
-          <Grid.Col span={6} px="lg">
-            <Image src="svg/logo/rockplot_logo_HQ.svg" maw="400px" mx="auto" />
-          </Grid.Col>
+          {matches && (
+            <Grid.Col span={{ base: 12, sm: 6 }} px="lg">
+              <Image
+                src="svg/logo/rockplot_logo_HQ.svg"
+                maw="400px"
+                mx="auto"
+              />
+            </Grid.Col>
+          )}
         </Grid>
       </Container>
     </Container>

@@ -1,17 +1,25 @@
 .container {
   background: var(--background-blue);
-  min-height: 700px;
-  background-image: url(/RockPlot/png/twinkle-twinkle.png), var(--background-blue);
+  min-height: 500px;
+  background-image: url(/RockPlot/png/twinkle-twinkle.png),
+    var(--background-blue);
+
+  @media (min-width: 48em) {
+    min-height: 700px;
+  }
 }
 
 .image {
   width: 80% !important;
   margin: auto;
-  margin-top: 3em;
+  margin-top: 1em;
   margin-bottom: 0em;
   font-size: 4em;
   font-weight: normal;
   text-align: center;
+  @media (min-width: 48em) {
+    margin-top: 3em;
+  }
 }
 
 .buttonlabel {

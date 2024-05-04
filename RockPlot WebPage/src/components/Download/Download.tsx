@@ -17,7 +17,7 @@ import HomeHeader from "../Layout/HomeHeader";
 import { useShellCtx } from "../Layout/Shell";
 import AppFooter from "../Layout/AppFooter";
 import { FaWindows } from "react-icons/fa";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 interface Releases {
   body: string;
@@ -39,8 +39,6 @@ const DownloadPage = () => {
     fetch("https://api.github.com/repos/eliasmgprado/rockplot/releases/latest")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-
         const { body, published_at, tag_name, name, assets } = data;
 
         const asset_file = assets.find((asset: any) =>

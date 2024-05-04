@@ -4,6 +4,7 @@ import {
   Container,
   ContainerProps,
   Group,
+  Stack,
   Text,
 } from "@mantine/core";
 import { FaLinkedin } from "react-icons/fa";
@@ -19,10 +20,24 @@ const AppFooter = ({ simple, ...props }: AppFooterProps) => {
     <Container pt="1.5rem" className={classes.container} fluid {...props}>
       <Container size="lg">
         <Center>
-          <Group pb="sm" gap={0}>
-            <Text style={{ borderRight: "1px solid grey" }} px="xs">
-              © 2020-2024 RockPlot by Elias Martins Guerra Prado
-            </Text>
+          <Group pb="sm" gap={0} justify="center">
+            <Group gap={0} justify="center">
+              <Text
+                // style={{ borderRight: "1px solid grey" }}
+                // px="xs"
+                ta="center"
+              >
+                © 2020-2024 RockPlot
+              </Text>
+              <Text
+                style={{ borderRight: "1px solid grey" }}
+                px="xs"
+                ta="center"
+              >
+                by Elias Martins Guerra Prado
+              </Text>
+            </Group>
+
             <ActionIcon
               variant="transparent"
               component="a"
