@@ -26,7 +26,7 @@ const AppFooter = ({ simple, ...props }: AppFooterProps) => {
                 // px="xs"
                 ta="center"
               >
-                © 2020-2024 RockPlot
+                © 2020-2025 RockPlot
               </Text>
               <Text
                 style={{ borderRight: "1px solid grey" }}
