@@ -81,7 +81,7 @@ const Releases = () => {
       .catch((error) => console.error(error));
   }, []);
   return (
-    <Stack align="stretch" gap={0} mih="100vh" w="100vw">
+    <Stack align="stretch" gap={0} mih="100vh" w="100%">
       <Container w="100%" pb="xl" style={{ flexGrow: 1 }}>
         <HomeHeader tocClick={tocToggleHandler} variant={"default"} />
         <Stack mt="md">
