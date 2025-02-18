@@ -7,6 +7,7 @@ import {
   Stack,
   Title,
   Tooltip,
+  Text,
 } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { MdOutlineFileDownload } from "react-icons/md";
@@ -39,7 +40,7 @@ const Releases = () => {
     fetch("https://api.github.com/repos/eliasmgprado/rockplot/releases")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
 
         const releases_data = data.map((item: any) => {
           const { body, published_at, tag_name, name, assets } = item;
@@ -86,13 +87,25 @@ const Releases = () => {
         <Stack mt="md">
           <Title>All releases</Title>
           {releases.map((release) => {
+            const date = new Date(release.published_at);
+
+            // Use getUTC* methods if you want the date in UTC,
+            // or get* methods for local time.
+            const day = ("0" + date.getDate()).slice(-2);
+            const month = ("0" + (date.getMonth() + 1)).slice(-2); // Months are zero-indexed
+            const year = date.getFullYear();
+
             return (
               <Card key={release.tag_name}>
                 <Group justify="space-between" w="100%" mb="md">
-                  <Group>
-                    <Badge color="blue">{release.tag_name}</Badge>
-                    <Title order={3}>{release.name}</Title>
-                  </Group>
+                  <Stack gap={0}>
+                    <Group>
+                      <Badge color="blue">{release.tag_name}</Badge>
+                      <Title order={3}>{release.name}</Title>
+                    </Group>
+                    <Text size="xs">{`published at ${day}-${month}-${year}`}</Text>
+                  </Stack>
+
                   <Group>
                     {withStats && (
                       <Badge

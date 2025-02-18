@@ -65,7 +65,7 @@ const Layout = (props: LayoutProps) => {
     setTimeout(() => window.dispatchEvent(new Event("resize")), 350);
   }, [tocIsOpen]);
 
-  console.log(tocIsOpen, !props.topIsOpen);
+  // console.log(tocIsOpen, !props.topIsOpen);
 
   return (
     <>
