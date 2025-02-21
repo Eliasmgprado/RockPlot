@@ -61,6 +61,21 @@ const Development = () => {
             >
               elias.prado@sgb.gov.br
             </Anchor>
+            <br/>
+            <Button
+              color="blue"
+              // rightSection={<MdOutlineFileDownload size={"2rem"} />}
+              size="lg"
+              classNames={{ label: classes.buttonlabel }}
+              onClick={() => {
+                window.open("https://eliasmgprado.github.io/", "_blank");
+              }}
+              variant="outline"
+              radius="xl"
+              mt="xl"
+            >
+              About The Author
+            </Button>
           </Grid.Col>
           {matches && (
             <Grid.Col span={{ base: 12, sm: 6 }} px="lg">
